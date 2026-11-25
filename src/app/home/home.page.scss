@@ -1,0 +1,214 @@
+/* ====================================
+   INICIO - ORIGEN
+==================================== */
+
+
+/* SECCIÓN PRINCIPAL */
+.hero {
+
+  // Imagen de fondo
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(20, 25, 20, 0.88) 0%,
+      rgba(20, 25, 20, 0.58) 38%,
+      rgba(20, 25, 20, 0.05) 80%
+    ),
+    url('/assets/platos/principal.jpg');
+
+  background-size: cover;
+  background-position: center;
+
+  min-height: 540px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* Contenedor del texto */
+.hero-contenido {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 70px 40px;
+}
+
+
+/* Bloque de presentación */
+.hero-texto {
+  max-width: 570px;
+
+  color: #ffffff;
+}
+
+
+/* Texto pequeño superior */
+.hero-etiqueta {
+  display: inline-block;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+
+  color: #dce8d8;
+  margin-bottom: 20px;
+}
+
+
+/* Título principal */
+.hero h1 {
+  font-size: clamp(45px, 5vw, 76px);
+  font-weight: 700;
+  line-height: 1.08;
+
+  color: #ffffff;
+
+  margin: 0 0 25px;
+  letter-spacing: -2px;
+}
+
+
+/* Descripción */
+.hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #f0f0f0;
+
+  margin-bottom: 30px;
+}
+
+
+/* Botones */
+.hero-botones {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-botones ion-button {
+  min-height: 52px;
+  font-size: 15px;
+
+  --border-radius: 9px;
+  --padding-start: 22px;
+  --padding-end: 22px;
+}
+
+
+/* ====================================
+   CARACTERÍSTICAS
+==================================== */
+
+.caracteristicas {
+  padding: 30px 0;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e4e8e2;
+}
+
+.caracteristica {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+  padding: 15px;
+}
+
+.caracteristica ion-icon {
+  font-size: 35px;
+  color: var(--ion-color-primary);
+  flex-shrink: 0;
+}
+
+.caracteristica h3 {
+  font-size: 17px;
+  font-weight: 700;
+
+  margin: 0 0 5px;
+}
+
+.caracteristica p {
+  font-size: 14px;
+  color: #68716b;
+
+  margin: 0;
+}
+
+
+/* ====================================
+   FAVORITOS DE LA CASA
+==================================== */
+
+.seccion-favoritos {
+  padding: 55px 0 70px;
+  background: #f7f8f5;
+}
+
+.encabezado-seccion {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.subtitulo-seccion {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  color: var(--ion-color-primary);
+}
+
+.encabezado-seccion h2 {
+  margin: 10px 0 0;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 470px;
+
+    background-position: 65% center;
+
+    background-image:
+      linear-gradient(
+        rgba(20, 25, 20, 0.78),
+        rgba(20, 25, 20, 0.55)
+      ),
+      url('/assets/platos/principal.jpg');
+  }
+
+  .hero-contenido {
+    padding: 45px 24px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .caracteristica {
+    justify-content: flex-start;
+  }
+
+  .encabezado-seccion {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .encabezado-seccion h2 {
+    font-size: 27px;
+  }
+
+}

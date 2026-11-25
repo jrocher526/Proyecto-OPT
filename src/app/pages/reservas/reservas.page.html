@@ -1,0 +1,173 @@
+<!-- CABECERA -->
+<!-- Cabecera común de toda la aplicación -->
+<app-cabecera></app-cabecera>
+
+<!-- CONTENIDO -->
+<ion-content class="ion-padding">
+  <main class="contenedor-reservas">
+    <!-- TÍTULO PRINCIPAL -->
+    <h1>Reserva tu mesa</h1>
+
+    <p>Completa los datos y ven a disfrutar del auténtico sabor venezolano.</p>
+
+    <!-- REJILLA RESPONSIVA -->
+    <ion-grid>
+      <ion-row>
+        <!-- COLUMNA IZQUIERDA -->
+        <ion-col size="12" size-lg="6">
+          <!-- TARJETA DEL FORMULARIO -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title> Datos de la reserva </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <div class="campos-reserva">
+                <!-- NOMBRE COMPLETO -->
+                <ion-input
+                  label="Nombre completo"
+                  label-placement="stacked"
+                  fill="outline"
+                  placeholder="Tu nombre y apellidos"
+                  name="nombre"
+                  [(ngModel)]="nombre"
+                >
+                </ion-input>
+
+                <!-- CORREO ELECTRÓNICO -->
+                <ion-input
+                  label="Correo electrónico"
+                  label-placement="stacked"
+                  fill="outline"
+                  type="email"
+                  placeholder="ejemplo@correo.com"
+                  name="correo"
+                  [(ngModel)]="correo"
+                >
+                </ion-input>
+
+                <!-- FECHA -->
+                <ion-input
+                  label="Fecha"
+                  label-placement="stacked"
+                  fill="outline"
+                  type="date"
+                  name="fecha"
+                  [(ngModel)]="fecha"
+                >
+                </ion-input>
+
+                <!-- HORA -->
+                <ion-input
+                  label="Hora"
+                  label-placement="stacked"
+                  fill="outline"
+                  type="time"
+                  name="hora"
+                  [(ngModel)]="hora"
+                >
+                </ion-input>
+
+                <!-- NÚMERO DE PERSONAS -->
+
+                <ion-select
+                  label="Número de personas"
+                  label-placement="stacked"
+                  fill="outline"
+                  placeholder="Selecciona el número de personas"
+                  name="personas"
+                  [(ngModel)]="personas"
+                >
+                  <ion-select-option [value]="1"> 1 persona </ion-select-option>
+
+                  <ion-select-option [value]="2">
+                    2 personas
+                  </ion-select-option>
+
+                  <ion-select-option [value]="3">
+                    3 personas
+                  </ion-select-option>
+
+                  <ion-select-option [value]="4">
+                    4 personas
+                  </ion-select-option>
+
+                  <ion-select-option [value]="5">
+                    5 personas
+                  </ion-select-option>
+
+                  <ion-select-option [value]="6">
+                    6 personas
+                  </ion-select-option>
+
+                  <!-- NUEVA OPCIÓN -->
+                  <ion-select-option value="mas">
+                    Más personas
+                  </ion-select-option>
+                </ion-select>
+
+                <!-- CAMPO PERSONALIZADO -->
+
+                <ion-input
+                  *ngIf="personas === 'mas'"
+                  label="¿Cuántas personas asistirán?"
+                  label-placement="stacked"
+                  fill="outline"
+                  type="number"
+                  min="7"
+                  step="1"
+                  placeholder="Introduce el número de personas"
+                  name="personasExtra"
+                  [(ngModel)]="personasExtra"
+                >
+                </ion-input>
+
+                <!-- BOTÓN DE RESERVA -->
+                <ion-button expand="block" color="primary">
+                  Reservar mesa
+                </ion-button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <!-- COLUMNA DERECHA -->
+        <ion-col size="12" size-lg="6">
+          <!-- ESPACIO PARA LA FOTOGRAFÍA -->
+          <div class="imagen-restaurante">
+            <p>Fotografía del restaurante</p>
+          </div>
+
+          <!-- INFORMACIÓN DEL RESTAURANTE -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title> Información del restaurante </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <p>
+                <strong>Dirección:</strong>
+                Ubrique, Cádiz.
+              </p>
+
+              <p>
+                <strong>Horario:</strong>
+                13:00 - 16:00 / 20:00 - 23:30
+              </p>
+
+              <p>
+                <strong>Ambiente:</strong>
+                Gastronomía venezolana.
+              </p>
+
+              <p>
+                <strong>Teléfono:</strong>
+                Pendiente de añadir.
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </main>
+</ion-content>

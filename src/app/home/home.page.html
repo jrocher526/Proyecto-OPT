@@ -1,0 +1,200 @@
+<!-- CABECERA COMPARTIDA -->
+<app-cabecera></app-cabecera>
+
+<!-- CONTENIDO PRINCIPAL -->
+<ion-content>
+
+  <!-- =========================================
+       SECCIÓN DE PRESENTACIÓN
+  ========================================== -->
+  <section class="hero">
+
+    <!-- Contenido centrado -->
+    <div class="hero-contenido">
+
+      <div class="hero-texto">
+
+        <!-- Etiqueta pequeña -->
+        <span class="hero-etiqueta">
+          COCINA VENEZOLANA
+        </span>
+
+        <!-- Título principal -->
+        <h1>
+          Bienvenido a
+          <br>
+          Origen
+        </h1>
+
+        <!-- Descripción -->
+        <p>
+          Disfruta de nuestras arepas, cachapas,
+          tequeños y los mejores platos de Venezuela,
+          ahora en Ubrique.
+        </p>
+
+        <!-- Botones de navegación -->
+        <div class="hero-botones">
+
+          <ion-button
+            routerLink="/pedidos"
+            color="primary">
+
+            <ion-icon
+              name="restaurant-outline"
+              slot="start">
+            </ion-icon>
+
+            Ver nuestra carta
+
+          </ion-button>
+
+          <ion-button
+            routerLink="/reservas"
+            fill="outline"
+            color="light">
+
+            <ion-icon
+              name="calendar-outline"
+              slot="start">
+            </ion-icon>
+
+            Reservar mesa
+
+          </ion-button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       CARACTERÍSTICAS DEL RESTAURANTE
+  ========================================== -->
+  <section class="caracteristicas">
+
+    <div class="contenedor-pagina">
+
+      <ion-grid>
+        <ion-row>
+
+          <!-- Característica 1 -->
+          <ion-col size="12" size-md="4">
+
+            <div class="caracteristica">
+
+              <ion-icon name="leaf-outline"></ion-icon>
+
+              <div>
+                <h3>Ingredientes auténticos</h3>
+                <p>El verdadero sabor de Venezuela.</p>
+              </div>
+
+            </div>
+
+          </ion-col>
+
+
+          <!-- Característica 2 -->
+          <ion-col size="12" size-md="4">
+
+            <div class="caracteristica">
+
+              <ion-icon name="restaurant-outline"></ion-icon>
+
+              <div>
+                <h3>Platos tradicionales</h3>
+                <p>Recetas caseras que nos representan.</p>
+              </div>
+
+            </div>
+
+          </ion-col>
+
+
+          <!-- Característica 3 -->
+          <ion-col size="12" size-md="4">
+
+            <div class="caracteristica">
+
+              <ion-icon name="calendar-outline"></ion-icon>
+
+              <div>
+                <h3>En Ubrique</h3>
+                <p>Visítanos o haz tu pedido online.</p>
+              </div>
+
+            </div>
+
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       FAVORITOS DE LA CASA
+  ========================================== -->
+  <section class="seccion-favoritos">
+
+    <div class="contenedor-pagina">
+
+      <div class="encabezado-seccion">
+
+        <div>
+          <span class="subtitulo-seccion">
+            DESCUBRE NUESTRA COCINA
+          </span>
+
+          <h2>Favoritos de la casa</h2>
+        </div>
+
+        <ion-button
+          fill="clear"
+          color="primary"
+          routerLink="/pedidos">
+
+          Ver carta completa
+
+          <ion-icon
+            name="arrow-forward-outline"
+            slot="end">
+          </ion-icon>
+
+        </ion-button>
+
+      </div>
+
+      <!-- Tarjetas de los platos destacados -->
+      <ion-grid>
+
+        <ion-row>
+
+          <ion-col
+            *ngFor="let plato of platosDestacados"
+            size="12"
+            size-md="4">
+
+            <app-plato-card
+              [plato]="plato">
+            </app-plato-card>
+
+          </ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+
+    </div>
+
+  </section>
+
+</ion-content>  

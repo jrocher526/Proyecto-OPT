@@ -1,0 +1,39 @@
+// For information on how to create your own theme, please refer to:
+// https://ionicframework.com/docs/theming/
+
+:root {
+
+  // VERDE PRINCIPAL DE ORIGEN
+  --ion-color-primary: #386847;
+  --ion-color-primary-rgb: 56, 104, 71;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #315b3e;
+  --ion-color-primary-tint: #4c7759;
+
+  // COLORES GENERALES
+  --color-fondo: #f7f8f5;
+  --color-superficie: #ffffff;
+  --color-texto: #222725;
+  --color-texto-secundario: #68716b;
+  --color-borde: #e4e8e2;
+
+  // ESTILOS GENERALES
+  --radio-tarjeta: 14px;
+}
+
+/* :root {
+
+  // Fondo principal: crema 
+  --ion-background-color: #f8f4ec;
+  --ion-background-color-rgb: 248, 244, 236;
+
+  // Color del texto 
+  --ion-text-color: #26362d;
+  --ion-text-color-rgb: 38, 54, 45;
+
+  // Fondo de las tarjetas 
+  --ion-card-background: #ffffff;
+
+}
+*/

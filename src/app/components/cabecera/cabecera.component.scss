@@ -1,0 +1,111 @@
+/* =====================================
+   CABECERA - ORIGEN
+===================================== */
+
+// Barra principal blanca
+.barra-principal {
+  --background: #ffffff;
+  --color: #222725;
+  --min-height: 76px;
+
+  --border-color: #e4e8e2;
+}
+
+// Marca del restaurante
+.marca-restaurante {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  ion-icon {
+    font-size: 38px;
+    color: #386847;
+  }
+}
+
+// Nombre y subtítulo
+.texto-marca {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    font-size: 27px;
+    font-weight: 700;
+    color: #222725;
+    line-height: 1;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #68716b;
+  }
+}
+
+// Menú principal
+.menu-escritorio {
+  gap: 10px;
+
+  ion-button {
+    --color: #333a35;
+    --padding-start: 15px;
+    --padding-end: 15px;
+
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 44px;
+  }
+}
+
+// Página activa
+.menu-escritorio ion-button.activo {
+  --color: #386847;
+
+  font-weight: 700;
+  border-bottom: 2px solid #386847;
+}
+
+// Botón de ajustes
+ion-buttons > ion-button {
+  --color: #333a35;
+}
+
+// Menú móvil oculto en ordenador
+.menu-movil {
+  display: none;
+}
+
+// Tablets y móviles
+@media (max-width: 900px) {
+
+  .menu-escritorio {
+    display: none;
+  }
+
+  .menu-movil {
+    display: flex;
+  }
+
+  .texto-marca strong {
+    font-size: 21px;
+  }
+
+  .marca-restaurante ion-icon {
+    font-size: 29px;
+  }
+
+}
+
+// Móviles pequeños
+@media (max-width: 480px) {
+
+  .texto-marca span {
+    font-size: 10px;
+  }
+
+  .texto-marca strong {
+    font-size: 18px;
+  }
+
+}

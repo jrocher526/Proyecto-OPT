@@ -1,0 +1,7 @@
+{
+  "name": "mi-app-personal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

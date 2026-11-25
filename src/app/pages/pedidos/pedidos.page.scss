@@ -1,0 +1,423 @@
+
+/* =====================================
+   PEDIDOS - ORIGEN
+===================================== */
+
+// Contenedor principal
+.contenedor-pedidos {
+  max-width: 1400px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+
+// =====================================
+// ENCABEZADO
+// =====================================
+
+.encabezado-pedidos {
+  margin-bottom: 25px;
+}
+
+.subtitulo {
+  color: var(--ion-color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.encabezado-pedidos h1 {
+  font-size: 42px;
+  font-weight: 700;
+
+  margin: 12px 0;
+}
+
+.encabezado-pedidos p {
+  color: #68716b;
+  font-size: 16px;
+}
+
+
+// =====================================
+// BUSCADOR
+// =====================================
+
+.buscador-platos {
+  max-width: 480px;
+  margin-bottom: 25px;
+}
+
+ion-searchbar {
+  --background: #ffffff;
+  --border-radius: 10px;
+  --box-shadow: none;
+
+  padding: 0;
+}
+
+
+// =====================================
+// CARTA DE PLATOS
+// =====================================
+
+.seccion-carta h2 {
+  font-size: 23px;
+  font-weight: 700;
+
+  margin: 0 0 20px;
+}
+
+.tarjeta-carta {
+  height: 100%;
+  margin: 0;
+
+  border: 1px solid #e4e8e2;
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+
+  overflow: hidden;
+}
+
+.foto-plato {
+  width: 100%;
+  height: 185px;
+
+  object-fit: cover;
+  display: block;
+}
+
+.tarjeta-carta ion-card-content {
+  padding: 18px;
+}
+
+.tarjeta-carta h3 {
+  font-size: 18px;
+  font-weight: 700;
+
+  margin: 0 0 9px;
+  color: #222725;
+}
+
+.tarjeta-carta p {
+  color: #68716b;
+  font-size: 14px;
+  line-height: 1.5;
+
+  min-height: 42px;
+  margin: 0 0 16px;
+}
+
+.pie-tarjeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.pie-tarjeta strong {
+  color: #386847;
+  font-size: 19px;
+}
+
+.pie-tarjeta ion-button {
+  --border-radius: 8px;
+  text-transform: none;
+}
+
+
+// =====================================
+// CARRITO
+// =====================================
+
+.contenedor-carrito {
+  position: sticky;
+  top: 20px;
+}
+
+.tarjeta-carrito {
+  margin: 0;
+
+  background: #ffffff;
+  border: 1px solid #e4e8e2;
+  border-radius: 14px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-carrito ion-card-content {
+  padding: 24px;
+}
+
+.tarjeta-carrito h2 {
+  font-size: 24px;
+  font-weight: 700;
+
+  margin: 0 0 24px;
+}
+
+.carrito-vacio {
+  padding: 25px 10px;
+  text-align: center;
+
+  color: #879089;
+}
+
+.resumen-pedido {
+  border-top: 1px solid #e4e8e2;
+  padding-top: 20px;
+}
+
+.fila-precio {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+  color: #68716b;
+}
+
+.fila-precio.total {
+  border-top: 1px solid #e4e8e2;
+  padding-top: 18px;
+
+  color: #222725;
+  font-size: 19px;
+}
+
+.tarjeta-carrito ion-button {
+  margin-top: 18px;
+  --border-radius: 9px;
+
+  min-height: 48px;
+}
+
+.sin-resultados {
+  text-align: center;
+  padding: 30px;
+  color: #68716b;
+}
+
+
+// =====================================
+// RESPONSIVE
+// =====================================
+
+@media (max-width: 991px) {
+
+  .contenedor-carrito {
+    position: static;
+    margin-top: 25px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .contenedor-pedidos {
+    padding: 25px 14px;
+  }
+
+  .encabezado-pedidos h1 {
+    font-size: 32px;
+  }
+
+  .foto-plato {
+    height: 200px;
+  }
+
+}
+
+
+/* =====================================
+   CANTIDADES Y OBSERVACIONES
+===================================== */
+
+.precio-plato {
+  display: block;
+  margin-bottom: 16px;
+
+  color: var(--ion-color-primary);
+  font-size: 19px;
+}
+
+.controles-cantidad {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 14px 0;
+  gap: 10px;
+}
+
+.selector-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid #e4e8e2;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.selector-cantidad button {
+  width: 30px;
+  height: 30px;
+
+  background: #f0f3ee;
+  color: #386847;
+
+  border: 0;
+  border-radius: 6px;
+
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.selector-cantidad button:hover {
+  background: #e1e9df;
+}
+
+.selector-cantidad span {
+  min-width: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.campo-observaciones {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+  margin-bottom: 15px;
+}
+
+.campo-observaciones label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.campo-observaciones textarea {
+  width: 100%;
+  padding: 10px;
+
+  border: 1px solid #dfe5dc;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #222725;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  resize: vertical;
+}
+
+.campo-observaciones textarea:focus {
+  outline: 2px solid #9db6a2;
+  outline-offset: 1px;
+}
+
+
+/* =====================================
+   PRODUCTOS DEL CARRITO
+===================================== */
+
+.titulo-carrito {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo-carrito span {
+  background: #e8f0e7;
+  color: #386847;
+
+  padding: 5px 10px;
+  border-radius: 20px;
+
+  font-weight: 700;
+}
+
+.producto-carrito {
+  padding: 16px 0;
+  border-bottom: 1px solid #e4e8e2;
+}
+
+.producto-datos strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.producto-datos p {
+  color: #68716b;
+  font-size: 12px;
+  margin: 4px 0 8px;
+
+  overflow-wrap: anywhere;
+}
+
+.producto-datos span {
+  display: block;
+  font-weight: 700;
+  color: #386847;
+}
+
+.acciones-carrito {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.boton-eliminar {
+  border: 0;
+  background: transparent;
+
+  color: #b54b4b;
+  cursor: pointer;
+
+  font-size: 13px;
+}
+
+.boton-eliminar:hover {
+  text-decoration: underline;
+}
+
+/* El carrito no debe crecer más que la pantalla */
+.contenedor-carrito {
+  position: sticky;
+  top: 16px;
+}
+
+.tarjeta-carrito {
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+/* Evita que las tarjetas se estiren desigualmente */
+.seccion-carta ion-row {
+  align-items: stretch;
+}
+
+.seccion-carta ion-col {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 991px) {
+  .contenedor-carrito {
+    position: static;
+  }
+
+  .tarjeta-carrito {
+    max-height: none;
+  }
+}

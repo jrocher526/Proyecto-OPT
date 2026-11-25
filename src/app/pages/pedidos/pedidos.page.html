@@ -1,0 +1,312 @@
+
+<!-- CABECERA COMPARTIDA -->
+<app-cabecera></app-cabecera>
+
+<ion-content>
+
+  <div class="contenedor-pedidos">
+
+    <!-- PRESENTACIÓN -->
+    <section class="encabezado-pedidos">
+
+      <span class="subtitulo">COCINA VENEZOLANA</span>
+
+      <h1>Nuestra carta</h1>
+
+      <p>
+        Elige tus platos favoritos, personalízalos
+        y disfruta del auténtico sabor venezolano.
+      </p>
+
+    </section>
+
+    <!-- BUSCADOR -->
+    <section class="buscador-platos">
+
+      <ion-searchbar
+        placeholder="Buscar plato..."
+        [(ngModel)]="busqueda"
+        [debounce]="200">
+      </ion-searchbar>
+
+    </section>
+
+    <!-- CARTA Y CARRITO -->
+    <ion-grid>
+
+      <ion-row>
+
+        <!-- IZQUIERDA: PLATOS -->
+        <ion-col size="12" size-lg="8">
+
+          <section class="seccion-carta">
+
+            <h2>Todos nuestros platos</h2>
+
+            <ion-grid>
+              <ion-row>
+
+                <ion-col
+                  *ngFor="let plato of platosFiltrados"
+                  size="12"
+                  size-md="6">
+
+                  <ion-card class="tarjeta-carta">
+
+                    <!-- FOTO -->
+                    <img
+                      class="foto-plato"
+                      [src]="plato.imagen"
+                      [alt]="plato.nombre">
+
+                    <ion-card-content>
+
+                      <!-- INFORMACIÓN -->
+                      <h3>{{ plato.nombre }}</h3>
+
+                      <p>{{ plato.descripcion }}</p>
+
+                      <strong class="precio-plato">
+                        {{ plato.precio | number:'1.2-2' }} €
+                      </strong>
+
+                      <!-- CANTIDAD -->
+                      <div class="controles-cantidad">
+
+                        <span>Cantidad</span>
+
+                        <div class="selector-cantidad">
+
+                          <button
+                            type="button"
+                            aria-label="Restar una unidad"
+                            (click)="cambiarCantidadPlato(plato, -1)">
+                            −
+                          </button>
+
+                          <span>
+                            {{ cantidades[plato.id] }}
+                          </span>
+
+                          <button
+                            type="button"
+                            aria-label="Sumar una unidad"
+                            (click)="cambiarCantidadPlato(plato, 1)">
+                            +
+                          </button>
+
+                        </div>
+
+                      </div>
+
+                      <!-- OBSERVACIONES -->
+                      <div class="campo-observaciones">
+
+                        <label [for]="'nota-' + plato.id">
+                          Observaciones
+                        </label>
+
+                        <textarea
+                          [id]="'nota-' + plato.id"
+                          [(ngModel)]="observaciones[plato.id]"
+                          placeholder="Ej. Sin tomate, extra queso..."
+                          rows="2">
+                        </textarea>
+
+                      </div>
+
+                      <!-- AÑADIR -->
+                      <ion-button
+                        expand="block"
+                        color="primary"
+                        (click)="agregarAlCarrito(plato)">
+
+                        Añadir al pedido
+
+                      </ion-button>
+
+                    </ion-card-content>
+
+                  </ion-card>
+
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+
+            <!-- SIN RESULTADOS -->
+            <p
+              *ngIf="platosFiltrados.length === 0"
+              class="sin-resultados">
+
+              No encontramos platos con ese nombre.
+
+            </p>
+
+          </section>
+
+        </ion-col>
+
+        <!-- DERECHA: CARRITO -->
+        <ion-col size="12" size-lg="4">
+
+          <aside class="contenedor-carrito">
+
+            <ion-card class="tarjeta-carrito">
+
+              <ion-card-content>
+
+                <div class="titulo-carrito">
+
+                  <h2>Tu pedido</h2>
+
+                  <span>
+                    {{ carritoService.getCantidadTotal() }}
+                  </span>
+
+                </div>
+
+                <!-- CARRITO VACÍO -->
+                <div
+                  *ngIf="carritoService.getProductos().length === 0"
+                  class="carrito-vacio">
+
+                  <p>
+                    Todavía no has añadido ningún plato.
+                  </p>
+
+                </div>
+
+                <!-- PRODUCTOS AÑADIDOS -->
+                <div
+                  class="producto-carrito"
+                  *ngFor="
+                    let producto of carritoService.getProductos();
+                    let i = index
+                  ">
+
+                  <div class="producto-datos">
+
+                    <strong>
+                      {{ producto.plato.nombre }}
+                    </strong>
+
+                    <p *ngIf="producto.observaciones">
+                      {{ producto.observaciones }}
+                    </p>
+
+                    <span>
+                      {{
+                        producto.plato.precio * producto.cantidad
+                        | number:'1.2-2'
+                      }} €
+                    </span>
+
+                  </div>
+
+                  <!-- CONTROLES DEL CARRITO -->
+                  <div class="acciones-carrito">
+
+                    <div class="selector-cantidad">
+
+                      <button
+                        type="button"
+                        aria-label="Restar unidad"
+                        (click)="cambiarCantidadCarrito(i, -1)">
+                        −
+                      </button>
+
+                      <span>{{ producto.cantidad }}</span>
+
+                      <button
+                        type="button"
+                        aria-label="Sumar unidad"
+                        (click)="cambiarCantidadCarrito(i, 1)">
+                        +
+                      </button>
+
+                    </div>
+
+                    <button
+                      type="button"
+                      class="boton-eliminar"
+                      [attr.aria-label]="'Eliminar ' + producto.plato.nombre"
+                      (click)="eliminarDelCarrito(i)">
+
+                      Eliminar
+
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <!-- TOTALES -->
+                <div class="resumen-pedido">
+
+                  <div class="fila-precio">
+
+                    <span>Subtotal</span>
+
+                    <span>
+                      {{
+                        carritoService.getSubtotal()
+                        | number:'1.2-2'
+                      }} €
+                    </span>
+
+                  </div>
+
+                  <div class="fila-precio">
+
+                    <span>Envío</span>
+
+                    <span>
+                      {{
+                        carritoService.getEnvio()
+                        | number:'1.2-2'
+                      }} €
+                    </span>
+
+                  </div>
+
+                  <div class="fila-precio total">
+
+                    <strong>Total</strong>
+
+                    <strong>
+                      {{
+                        carritoService.getTotal()
+                        | number:'1.2-2'
+                      }} €
+                    </strong>
+
+                  </div>
+
+                </div>
+
+                <!-- FINALIZAR PEDIDO -->
+                <ion-button
+                  expand="block"
+                  color="primary"
+                  [disabled]="carritoService.getProductos().length === 0">
+
+                  Realizar pedido
+
+                </ion-button>
+
+              </ion-card-content>
+
+            </ion-card>
+
+          </aside>
+
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+</ion-content>

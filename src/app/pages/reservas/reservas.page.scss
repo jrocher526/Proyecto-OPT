@@ -1,0 +1,104 @@
+/* CONTENEDOR PRINCIPAL */
+
+.contenedor-reservas {
+
+  max-width: 1200px;
+
+  width: 100%;
+
+  margin: 0 auto;
+
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+h1 {
+
+  color: var(--ion-color-primary);
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+
+}
+
+
+/* TARJETAS */
+
+ion-card {
+
+  border-radius: 12px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* TÍTULOS DE TARJETAS */
+
+ion-card-title {
+
+  color: var(--ion-color-primary);
+
+  font-weight: bold;
+
+}
+
+
+/* FOTOGRAFÍA DEL RESTAURANTE */
+
+.imagen-restaurante {
+
+  width: 100%;
+
+  min-height: 250px;
+
+  background: var(--ion-color-light);
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 10px 0 20px;
+
+}
+
+
+/* TEXTO PROVISIONAL */
+
+.imagen-restaurante p {
+
+  color: var(--ion-color-medium);
+
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+.campos-reserva {
+
+  /* Organizamos los campos verticalmente */
+  display: flex;
+
+  flex-direction: column;
+
+  /* Separación entre los campos */
+  gap: 16px;
+
+}
+
+
+/* BOTÓN DE RESERVA */
+
+.campos-reserva ion-button {
+
+  /* Separación respecto al último campo */
+  margin-top: 10px;
+
+}

@@ -1,0 +1,28 @@
+
+<!-- TARJETA REUTILIZABLE DE PLATO -->
+<ion-card class="tarjeta-plato">
+
+  <!-- Fotografía -->
+  <ion-img
+    class="imagen-plato"
+    [src]="plato.imagen"
+    [alt]="plato.nombre">
+  </ion-img>
+
+  <!-- Información -->
+  <ion-card-content class="informacion-plato">
+
+    <!-- Nombre -->
+    <h3>{{ plato.nombre }}</h3>
+
+    <!-- Descripción -->
+    <p>{{ plato.descripcion }}</p>
+
+    <!-- Precio -->
+    <strong>
+      {{ plato.precio | number:'1.2-2' }} €
+    </strong>
+
+  </ion-card-content>
+
+</ion-card>

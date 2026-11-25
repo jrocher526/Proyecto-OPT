@@ -1,0 +1,93 @@
+
+/* =====================================
+   TARJETAS DE PLATOS - ORIGEN
+===================================== */
+
+// Tarjeta principal
+.tarjeta-plato {
+  margin: 0;
+  height: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e8e2;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+// Efecto al pasar el ratón
+.tarjeta-plato:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+}
+
+// Fotografía del plato
+.imagen-plato {
+  width: 100%;
+  height: 225px;
+
+  object-fit: cover;
+}
+
+.imagen-plato::part(image) {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+// Información del plato
+.informacion-plato {
+  padding: 20px;
+}
+
+// Nombre
+.informacion-plato h3 {
+  font-size: 19px;
+  font-weight: 700;
+
+  color: #222725;
+
+  margin: 0 0 9px;
+}
+
+// Descripción
+.informacion-plato p {
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #68716b;
+
+  margin: 0 0 16px;
+
+  min-height: 42px;
+}
+
+// Precio
+.informacion-plato strong {
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #386847;
+}
+
+// Adaptación a móviles
+@media (max-width: 768px) {
+
+  .imagen-plato {
+    height: 190px;
+  }
+
+  .informacion-plato {
+    padding: 16px;
+  }
+
+}
